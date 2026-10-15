@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#5b4bdb"/>
+  <text x="50" y="66" text-anchor="middle"
+        font-family="Arial" font-size="42" font-weight="bold"
+        fill="white">SH</text>
+</svg>
