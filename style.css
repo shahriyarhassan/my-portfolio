@@ -392,3 +392,68 @@ header {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+@media (max-width: 600px) {
+  header {
+    padding: 0.75rem 1rem;
+  }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  nav a:not(.social-icon) {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .profile-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  #home h1 {
+    font-size: clamp(2.2rem, 11vw, 3.1rem);
+  }
+
+  #contact .email-address {
+    font-size: clamp(0.65rem, 3.2vw, 0.9rem);
+    white-space: nowrap;
+  }
+}
+
+.hero-layout {
+  grid-template-columns: minmax(0, 1fr) clamp(90px, 28vw, 120px);
+  align-items: start;
+  gap: 0.65rem;
+}
+
+.hero-layout > div {
+  min-width: 0;
+}
+
+.profile-photo {
+  width: clamp(90px, 28vw, 120px);
+  height: clamp(90px, 28vw, 120px);
+  margin-top: 2rem;
+}
+
+#home h1 {
+  font-size: clamp(1.45rem, 7vw, 2rem);
+  line-height: 1.1;
+}
