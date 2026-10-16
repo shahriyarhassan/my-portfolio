@@ -16,7 +16,7 @@ body {
 
 header {
   padding: 1rem 8%;
-  background: white;
+  background: rgb(255, 255, 255);
   border-bottom: 1px solid #e5e5ee;
 }
 
@@ -111,4 +111,284 @@ footer {
   height: 140px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+#home {
+  display: block;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  align-items: center;
+  gap: 3rem;
+}
+
+.profile-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-layout > div {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.profile-photo {
+  animation: fade-in 0.8s ease-out 0.15s both;
+}
+
+article {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgb(32 32 51 / 12%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 10%, #e5e2ff 0, transparent 35%),
+    radial-gradient(circle at 90% 15%, #dff5ff 0, transparent 30%),
+    #f6f7fb;
+}
+
+section,
+article {
+  background: rgb(255 255 255 / 55%);
+  border: 1px solid rgb(255 255 255 / 85%);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgb(32 32 51 / 8%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+section {
+  padding: 2rem;
+  margin: 1rem 0;
+}
+
+@media (hover: hover) {
+  section:hover,
+  article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgb(32 32 51 / 14%);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: page-enter 0.55s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+nav a:not(.social-icon) {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgb(91 75 219 / 20%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 45%);
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease,
+              box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+nav a:not(.social-icon):hover {
+  transform: translateY(-3px);
+  border-color: #5b4bdb;
+  background: rgb(255 255 255 / 85%);
+  box-shadow: 0 6px 16px rgb(91 75 219 / 18%);
+}
+
+nav a:not(.social-icon):focus-visible {
+  outline: 3px solid #5b4bdb;
+  outline-offset: 3px;
+}
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+#contact .social-links .social-icon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact .social-icon.facebook {
+  background: #1877f2;
+}
+
+#contact .social-icon.linkedin {
+  background: #0a66c2;
+}
+
+#contact .social-links .social-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgb(32 32 51 / 20%);
+}
+
+#contact .social-icon.email {
+  background: #5b4bdb;
+}
+
+#contact .email-address {
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  background: rgb(91 75 219 / 8%);
+  color: #4b3bc8;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact .email-address:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgb(91 75 219 / 18%);
+}
+
+#contact .email-contact {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.5rem 0 1rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgb(255 255 255 / 85%);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 55%);
+  box-shadow: 0 8px 20px rgb(32 32 51 / 8%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+#contact .email-symbol {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: #5b4bdb;
+  color: white;
+}
+
+#contact .email-address {
+  padding: 0;
+  color: #4b3bc8;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+#contact .email-address:hover {
+  text-decoration: underline;
+}
+#contact .contact-methods {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+#contact .social-links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 10%, #d9d5f5 0, transparent 35%),
+    radial-gradient(circle at 90% 15%, #d5e8f0 0, transparent 30%),
+    #e9eaf1;
+}
+
+section,
+article {
+  background: rgb(220 222 235 / 68%);
+}
+
+#contact .email-contact,
+nav a:not(.social-icon) {
+  background: rgb(220 222 235 / 65%);
+}
+
+header {
+  background: rgb(213 216 232 / 90%);
+  border-bottom: 1px solid rgb(91 75 219 / 20%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
