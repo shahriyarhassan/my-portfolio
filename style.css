@@ -534,3 +534,10 @@ nav a:not(.social-icon):hover {
 footer {
   color: rgb(51 34 22 / 75%);
 }
+
+@media (max-width: 600px) {
+  #home {
+    min-height: auto;
+    padding-bottom: 32px;
+  }
+}
