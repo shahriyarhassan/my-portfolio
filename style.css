@@ -541,3 +541,78 @@ footer {
     padding-bottom: 32px;
   }
 }
+.category-tabs {
+  display: flex;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.category-tab {
+  padding: 12px 24px;
+  border: 1px solid #8c4c1f;
+  border-radius: 999px;
+  background: #fffaf0;
+  color: #332216;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.category-tab.active,
+.category-tab:hover {
+  background: #be5103;
+  color: white;
+}
+
+.category-panel[hidden] {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .category-tabs {
+    gap: 8px;
+  }
+
+  .category-tab {
+    padding: 10px 16px;
+  }
+}
+section[hidden] {
+  display: none !important;
+}
+/* Center the three category buttons */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+/* Animate the buttons when hovered or clicked */
+.category-tab {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.category-tab:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(51, 34, 22, 0.18);
+}
+
+.category-tab.active {
+  transform: scale(1.05);
+}
+
+/* Fade and slide in the selected section */
+.category-panel:not([hidden]) {
+  animation: panel-appear 0.35s ease;
+}
+
+@keyframes panel-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
