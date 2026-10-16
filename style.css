@@ -457,3 +457,80 @@ header {
   font-size: clamp(1.45rem, 7vw, 2rem);
   line-height: 1.1;
 }
+
+:root {
+  --burnt-orange: #be5103;
+  --brown: #8c4c1f;
+  --olive: #544823;
+  --dark-brown: #332216;
+  --warm-cream: #f7f1e8;
+}
+
+body {
+  color: var(--dark-brown);
+  background:
+    radial-gradient(circle at 10% 10%, #ead7c2 0, transparent 35%),
+    radial-gradient(circle at 90% 15%, #e5dfca 0, transparent 30%),
+    var(--warm-cream);
+}
+
+header {
+  background: rgb(247 241 232 / 92%);
+  border-bottom: 1px solid rgb(84 72 35 / 25%);
+}
+
+h1, h2, h3 {
+  color: var(--dark-brown);
+}
+
+a {
+  color: var(--burnt-orange);
+}
+
+section,
+article {
+  color: var(--dark-brown);
+  background: rgb(255 250 242 / 75%);
+  border-color: rgb(84 72 35 / 25%);
+}
+
+nav a:not(.social-icon) {
+  color: var(--dark-brown);
+  border-color: rgb(84 72 35 / 28%);
+}
+
+nav a:not(.social-icon):hover {
+  color: var(--burnt-orange);
+  border-color: var(--burnt-orange);
+}
+
+#home a,
+.project-icon {
+  color: white;
+  background: var(--burnt-orange);
+}
+
+#contact .email-contact {
+  background: rgb(255 250 242 / 80%);
+  border-color: rgb(84 72 35 / 28%);
+}
+
+#contact .email-symbol {
+  background: var(--olive);
+}
+
+#contact .email-address {
+  color: var(--brown);
+}
+
+#contact .social-icon.facebook {
+  background: var(--burnt-orange);
+}
+
+#contact .social-icon.linkedin {
+  background: var(--brown);
+}
+
+footer {
+  color: rgb(51 34 22 / 75%);
+}
