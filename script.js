@@ -20,8 +20,21 @@ tabs.forEach((tab) => {
       panel.hidden = false;
       tab.classList.add("active");
       tab.setAttribute("aria-selected", "true");
+      history.replaceState(null, "", "#" + tab.dataset.target);
     }
   });
 });
 
+// Open the tab named in the URL (for example project.html#photos-panel)
+const startTab = document.querySelector(
+  '.category-tab[data-target="' + location.hash.slice(1) + '"]'
+);
+if (startTab) startTab.click();
+
+// Turn on the fade only after the starting tab is set
+document.body.classList.add("tabs-ready");
+
+// Clear the old saved theme from visitors' browsers
 try { localStorage.removeItem("theme"); } catch (e) {}
+
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";

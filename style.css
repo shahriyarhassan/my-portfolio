@@ -382,13 +382,13 @@ article a:hover {
   color: var(--on-accent);
 }
 
-.category-panel:not([hidden]) {
-  animation: panel-in 0.3s ease;
+.tabs-ready .category-panel:not([hidden]) {
+  animation: panel-in 0.2s ease;
 }
 
 @keyframes panel-in {
   from {
-    opacity: 0;
+    opacity: 0.4;
     transform: translateY(10px);
   }
   to {
@@ -422,45 +422,6 @@ article a:hover {
   margin-top: 0.4rem;
   font-size: 0.9rem;
   color: var(--muted);
-}
-
-/* ---------- Theme toggle icon button ---------- */
-
-.theme-toggle {
-  display: inline-grid;
-  width: 40px;
-  height: 40px;
-  place-items: center;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--surface-2);
-  color: var(--text);
-  cursor: pointer;
-  transition: transform 0.35s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.theme-toggle:hover {
-  transform: rotate(25deg);
-  border-color: var(--link);
-  color: var(--link);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-}
-
-.theme-toggle .icon-sun {
-  display: none;
-}
-
-:root[data-theme="dark"] .theme-toggle .icon-sun {
-  display: block;
-}
-
-:root[data-theme="dark"] .theme-toggle .icon-moon {
-  display: none;
 }
 
 /* ---------- 9. Footer ---------- */
@@ -534,4 +495,61 @@ footer p {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ---------- Page load animation ---------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ring-glow {
+  from {
+    box-shadow: 0 0 0 rgb(255 45 149 / 0%);
+  }
+  to {
+    box-shadow: var(--photo-glow);
+  }
+}
+
+/* Header slides down first */
+header {
+  animation: drop 0.5s ease-out backwards;
+}
+
+/* Home page: the hero already fades in, then About and Contact follow */
+#about {
+  animation: rise 0.6s ease-out 0.2s backwards;
+}
+
+#contact {
+  animation: rise 0.6s ease-out 0.35s backwards;
+}
+
+/* Your photo ring lights up in neon rose */
+.profile-photo {
+  animation: ring-glow 1.2s ease-out 0.4s backwards;
+}
+
+/* Projects page: the tab buttons rise in */
+.category-tabs {
+  animation: rise 0.5s ease-out 0.1s backwards;
 }
