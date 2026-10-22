@@ -8,19 +8,20 @@ const panels = document.querySelectorAll(".category-panel");
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
-    panels.forEach((panel) => {
-      panel.hidden = true;
-    });
+    panels.forEach((panel) => (panel.hidden = true));
 
     tabs.forEach((button) => {
       button.classList.remove("active");
+      button.setAttribute("aria-selected", "false");
     });
 
     const panel = document.getElementById(tab.dataset.target);
-
     if (panel) {
       panel.hidden = false;
       tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
     }
   });
 });
+
+try { localStorage.removeItem("theme"); } catch (e) {}

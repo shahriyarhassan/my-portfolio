@@ -6,7 +6,6 @@
   <title>My Project | Portfolio</title>
   <link rel="stylesheet" href="style.css">
    <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
-   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCDYNV5BZT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,10 +19,10 @@
   <main>
     <a href="index.html">← Back to home</a>
 
-    <div class="category-tabs">
-  <button class="category-tab active" data-target="projects-panel">Projects</button>
-  <button class="category-tab" data-target="videos-panel">Videos</button>
-  <button class="category-tab" data-target="photos-panel">Photos</button>
+   <div class="category-tabs" role="tablist">
+  <button type="button" role="tab" aria-selected="true" class="category-tab active" data-target="projects-panel">Projects</button>
+  <button type="button" role="tab" aria-selected="false" class="category-tab" data-target="videos-panel">Videos</button>
+  <button type="button" role="tab" aria-selected="false" class="category-tab" data-target="photos-panel">Photos</button>
 </div>
 
 <section id="projects-panel" class="category-panel">
@@ -81,8 +80,8 @@
 </section>
 
 <section id="photos-panel" class="category-panel" hidden>
-  <h2>Project Photos</h2>
-  <p>Nothing done yet..</p>
+  <h3>Project Photos</h3>
+  <p>Photos of my circuits and PLC setups are coming soon.</p>
 </section>
   </main>
   <script src="script.js"></script>
