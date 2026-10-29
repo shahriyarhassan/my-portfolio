@@ -49,47 +49,121 @@
 </section>
 
 <section id="videos-panel" class="category-panel" hidden>
-  <article>
-  <h3>Video of RLC Diagram With Automation Studio(1)</h3>
-  <p><h4>Sequence of this Operation</h4>
-    * The relay will active when we press the start push button.<br>
-    * When relay is active, the First lamp will be on.<br>
-    * When the relay is not active, the second lamp will be on.
-  </p>
-  <a href="https://drive.google.com/file/d/1Dyyc3hLuSCQRP0DE0r65FsRZDgPVqK5n/view?usp=sharing" target="_blank" rel="noopener">
-    View video
-  </a>
+ <article>
+  <h3>Relay control with green and red lamps</h3>
+  <p class="card-label">Automation Studio · Sequence 1</p>
+
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>The relay activates when the NO push button is pressed.</li>
+    <li>When the relay is ON, the green lamp turns on.</li>
+    <li>When the relay is OFF, the red lamp turns on.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1Dyyc3hLuSCQRP0DE0r65FsRZDgPVqK5n/view?usp=sharing" target="_blank" rel="noopener" aria-label="Watch video: relay control with green and red lamps">View video</a>
 </article>
+
 <article>
-  <h3>Video of RLC Diagram With Automation Studio(2)</h3>
-  <p><h4>Sequence of this Operation</h4>
-    * When we press the NO push button, The indicator lamp will be on and remain on even after releasing the push button(Latching).<br>
-    * The indicator lamp will be off when we press the NC push button and remain off even after releasing the push button.
-  </p>
-  <a href="https://drive.google.com/file/d/1dYLl6WP03mPpwDv343jCOGYPuhtItcZF/view?usp=sharing" target="_blank" rel="noopener">
-    View video
-  </a>
+  <h3>Latching circuit with NO and NC push buttons</h3>
+  <p class="card-label">Automation Studio · Sequence 2</p>
+
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>When the NO push button is pressed, the indicator lamp turns on and stays on after the button is released (latching).</li>
+    <li>The lamp turns off when the NC push button is pressed.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1dYLl6WP03mPpwDv343jCOGYPuhtItcZF/view?usp=sharing" target="_blank" rel="noopener" aria-label="Watch video: latching circuit with NO and NC push buttons">View video</a>
 </article>
+
 <article>
-  <h3>Video of RLC Diagram With Automation Studio(3)</h3>
-  <p><h4>Sequence of this Operation</h4>
-    * When we press the start push button while the selector switch is in "0" possition, the indicator lamp will turn on without latching(Jog mode).<br>
-    * When we press the start push button while the selector switch is in "1" possition, the indicator lamp will turn on and remain on even after releasing the push button(Latching).<br>
-    * The indicator lamp will be off when we press the stop push button and remain off even after releasing the push button.
-  </p>
-  <a href="https://drive.google.com/file/d/1oDq4qbiDxwOZ8d4gYat-QSgjHKj9Vm8w/view?usp=sharing" target="_blank" rel="noopener">
-    View video
-  </a>
+  <h3>Jog and latching control with a selector switch</h3>
+  <p class="card-label">Automation Studio · Sequence 3</p>
+
+  <p>Two push buttons (Start and Stop) and one selector switch.</p>
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>When the Start push button is pressed with the selector switch in position 0, the indicator lamp turns on without latching (jog mode).</li>
+    <li>When the Start push button is pressed with the selector switch in position 1, the indicator lamp turns on and latches.</li>
+    <li>The lamp turns off when the NC Stop push button is pressed.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1oDq4qbiDxwOZ8d4gYat-QSgjHKj9Vm8w/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Watch video: jog and latching control with a selector switch">View video</a>
 </article>
+
 <article>
-  <h3>Video of RLC Diagram With Automation Studio(4)</h3>
-  <p><h4>Sequence of this Operation</h4>
-    * Pressing any of the start push buttons will turn on the indicator lamp and remain on even after releasing the push button(Latching).<br>
-    * Pressing any of the stop push buttons will turn off the indicator lamp and remain off even after releasing the push button.
-  </p>
-  <a href="https://drive.google.com/file/d/1hmCwI8xYdRDKNEjzUMsem4-DNzkQPcMk/view?usp=sharing" target="_blank" rel="noopener">
-    View video
-  </a>
+  <h3>Two start and two stop buttons for one load</h3>
+  <p class="card-label">Automation Studio · Sequence 4</p>
+
+  <p>Two Start push buttons and two Stop push buttons control a single load.</p>
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>Pressing any one of the Start push buttons turns the load on (latching).</li>
+    <li>Pressing any one of the Stop push buttons turns the load off.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1hmCwI8xYdRDKNEjzUMsem4-DNzkQPcMk/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Watch video: two start and two stop buttons for one load">View video</a>
+</article>
+
+<article>
+  <h3>Interlocked lamps with a common stop button</h3>
+  <p class="card-label">Automation Studio · Sequence 5</p>
+
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>Pressing push button 1 turns lamp 1 on. Push button 3 turns it off.</li>
+    <li>Pressing push button 2 turns lamp 2 on. Push button 3 turns it off.</li>
+    <li>If lamp 1 is started first, lamp 2 cannot be turned on at the same time.</li>
+    <li>If lamp 2 is started first, lamp 1 cannot be turned on at the same time.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1FK63XdEbUh1WJNcEG3YfeB2q-zxTxwVk/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Watch video: interlocked lamps with a common stop button">View video</a>
+</article>
+
+<article>
+  <h3>Lamp changeover with a common stop button</h3>
+  <p class="card-label">Automation Studio · Sequence 6</p>
+
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>Pressing push button 1 turns lamp 1 on. Push button 3 turns it off.</li>
+    <li>Pressing push button 2 turns lamp 2 on. Push button 3 turns it off.</li>
+    <li>Only one lamp can run at a time.</li>
+    <li>If lamp 1 is on and push button 2 is pressed, lamp 2 turns on and lamp 1 turns off immediately.</li>
+    <li>The same logic applies to both lamps.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1gq706TjFEJ5z_5Kf2BjMTb_TbjzNA012/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Watch video: lamp changeover with a common stop button">View video</a>
+</article>
+
+<article>
+  <h3>Sequential relay start and reverse stop</h3>
+  <p class="card-label">Automation Studio · Sequence 7</p>
+
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>Pressing NO push button 1 turns relay 1 on.</li>
+    <li>Pressing NO push button 2 turns relay 2 on.</li>
+    <li>Pressing NO push button 3 turns relay 3 on.</li>
+    <li>The starting sequence is 1, 2, 3 and the stopping sequence is 3, 2, 1.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1Tf7EinWvBZGxIkn4goXVUwBCiPfxpYH2/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Watch video: sequential relay start and reverse stop">View video</a>
+</article>
+
+<article>
+  <h3>Dependent relays with automatic cut-off</h3>
+  <p class="card-label">Automation Studio · Sequence 8</p>
+
+  <p><strong>Sequence of Operation</strong></p>
+  <ul>
+    <li>Pressing the NO push button turns relay 1 on.</li>
+    <li>When relay 1 turns on, relay 2 turns on at the same time.</li>
+    <li>If relay 2 does not turn on after relay 1 is activated, relay 1 turns off immediately.</li>
+    <li>A stop switch is available for both relays.</li>
+  </ul>
+
+  <a href="https://drive.google.com/file/d/1tVO-YLWvOxiOR6ewYhIZYS2YhV0c0p0G/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Watch video: dependent relays with automatic cut-off">View video</a>
 </article>
 </section>
 

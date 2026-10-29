@@ -553,3 +553,26 @@ header {
 .category-tabs {
   animation: rise 0.5s ease-out 0.1s backwards;
 }
+
+article ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+article li {
+  margin-bottom: 0.3rem;
+}
+
+article li::marker {
+  color: var(--rail);
+}
+
+.card-label {
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--link);
+}
