@@ -1,152 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Delta VFD-L Motor Simulator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shahriyar Hassan | Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FCDYNV5BZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FCDYNV5BZT');
+</script>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="project.html">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
   <main>
-    <h1>Delta VFD-L Motor Simulator</h1>
-    <p>Three-phase motor control simulation ( 2 wire connection)</p>
+   <section id="home">
+  <div class="hero-layout">
+    <div>
+      <p>Hello, I'm</p>
+      <h1>Shahriyar Hassan</h1>
+      <p>I’m a Diploma Engineer in Electrical Technology with an interest in circuit design, PLCs, and automation</p>
+      <a href="project.html">View my projects ↗</a>
+    </div>
 
-    <section aria-labelledby="controls-title">
-  <h2 id="controls-title">VFD-L controls</h2>
-
-  <label for="frequency">
-    Potentiometer frequency command:
-    <output id="frequency-value" for="frequency">0.0</output> Hz
-  </label>
-  <input id="frequency" type="range" min="0" max="50" step="0.1" value="0">
-
-  <h3>Terminal mode — parameter 4-04</h3>
-
-<label for="terminal-mode">Select two-wire mode:</label>
-<select id="terminal-mode">
-  <option value="d1">d1 — separate forward and reverse inputs</option>
-  <option value="d2">d2 — run/stop and direction inputs</option>
-</select>
-
-<div class="terminal-controls" id="terminal-controls">
-  <!-- JavaScript updates these labels for d1 or d2 -->
-</div>
-
-<p id="terminal-explanation" aria-live="polite"></p>
-
-<button id="keypad-stop" type="button">Keypad STOP</button>
-
-  
-  <h2>Drive output</h2>
-  <p>Output frequency: <output id="output-frequency">0.0</output> Hz</p>
-  <p>Output voltage: <output id="output-voltage">0</output> V</p>
-  <p>Motor status: <output id="motor-status">Stopped</output></p>
-</section>
-
-<section class="wiring-section" aria-labelledby="wiring-title">
-  <h2 id="wiring-title">Wiring diagram — d1</h2>
-  <figure>
-    <img
-      src="images/vfd-d1.png"
-      alt="Delta VFD-L d1 two-wire wiring diagram"
-    >
-    <figcaption>
-      d1: M0 open = stop, closed = forward run.
-      M1 open = stop, closed = reverse run.
-    </figcaption>
-  </figure>
-
-  <h2>Wiring diagram — d2</h2>
-  <figure>
-    <img
-      src="images/vfd-d2.png"
-      alt="Delta VFD-L d2 two-wire wiring diagram"
-    >
-    <figcaption>
-      d2: M0 open = stop, closed = run.
-      With M0 closed, M1 open = forward and closed = reverse.
-    </figcaption>
-  </figure>
-</section>
-
-<section class="parameter-section" aria-labelledby="parameters-title">
-  <h2 id="parameters-title">VFD parameter setup</h2>
-  <p class="parameter-intro">
-    Delta VFD-L settings used for this educational simulation.
-  </p>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">Parameter</th>
-          <th scope="col">Code</th>
-          <th scope="col">Setting</th>
-          <th scope="col">Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Reset parameter</td>
-          <td>0-02</td>
-          <td>d10</td>
-          <td>Reset setting shown in your parameter list</td>
-        </tr>
-        <tr>
-          <td>Maximum output frequency</td>
-          <td>1-00</td>
-          <td>50.0 Hz</td>
-          <td>Sets the frequency limit</td>
-        </tr>
-        <tr>
-          <td>Maximum voltage frequency</td>
-          <td>01-01</td>
-          <td>50.0 Hz</td>
-          <td>Frequency at which maximum voltage is reached</td>
-        </tr>
-        <tr>
-          <td>Maximum output voltage</td>
-          <td>01-02</td>
-          <td>220 V</td>
-          <td>Maximum output voltage setting</td>
-        </tr>
-        <tr>
-          <td>Acceleration time</td>
-          <td>01-09</td>
-          <td>10.0 s</td>
-          <td>Time used by the simulator's upward frequency ramp</td>
-        </tr>
-        <tr>
-          <td>Deceleration time</td>
-          <td>1-10</td>
-          <td>10.0 s</td>
-          <td>Time used by the simulator's downward frequency ramp</td>
-        </tr>
-        <tr>
-          <td>Frequency command source</td>
-          <td>2-00</td>
-          <td>d3</td>
-          <td>Potentiometer frequency command</td>
-        </tr>
-        <tr>
-          <td>Operation command source</td>
-          <td>02-01</td>
-          <td>d1</td>
-          <td>External terminals; keypad STOP enabled</td>
-        </tr>
-        <tr>
-          <td>Multifunction input terminals M0, M1</td>
-          <td>04-04</td>
-          <td>d1 or d2</td>
-          <td>Same function setting applied to both terminals</td>
-        </tr>
-      </tbody>
-    </table>
+    <img class="profile-photo"
+         src="Images/profile.jpg"
+         alt="Photo of Shahriyar Hassan">
   </div>
 </section>
 
+    <section id="about">
+      <h2>About me</h2>
+      <p>I have completed my Diploma in Electrical Technology from Jashore Govt. Polytechnic Institute. I’m interested in electrical systems, automation, and PLC technology. I enjoy learning through practical projects and sharing what I build here.</p>
+    </section>
 
+    <section id="skills">
+  <h2>Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>PLC and automation</h3>
+      <ul class="skill-tags">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li>Ladder diagrams</li>
+        <li>Star-delta starter control</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Software tools</h3>
+      <ul class="skill-tags">
+        <li>Automation Studio</li>
+        <li></li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <h3>Electrical knowledge</h3>
+      <ul class="skill-tags">
+        <li>Circuit design</li>
+        <li>Relay control</li>
+        <li>Transformer analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+     
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Contact me:</p>
+
+
+<div class="email-contact">
+  <span class="email-symbol" aria-hidden="true">✉</span>
+  <a class="email-address" href="https://mail.google.com/mail/?view=cm&fs=1&to=shahriyarhassan2006%40gmail.com" target="_blank" rel="noopener">
+    shahriyarhassan2006@gmail.com
+  </a>
+</div>
+
+<div class="social-links">
+  <a class="social-icon facebook"
+     href="https://www.facebook.com/shahriyarofficial7"
+     target="_blank" rel="noopener"
+     aria-label="Facebook" title="Facebook">f</a>
+
+  <a class="social-icon linkedin"
+     href="https://www.linkedin.com/in/shahriyar-hassan-32b515369"
+     target="_blank" rel="noopener"
+     aria-label="LinkedIn" title="LinkedIn">in</a>
+    
+</div>
+  </section>
   </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> Shahriyar Hassan</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>

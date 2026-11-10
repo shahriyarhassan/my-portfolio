@@ -1,261 +1,622 @@
 :root {
   color-scheme: dark;
-  font-family: Arial, sans-serif;
-  background: #080d12;
-  color: #edf4f8;
+
+  --bg: #0a0a0a;
+  --bg-glow-1: #06303f;
+  --bg-glow-2: #3a0b24;
+  --grid: rgb(0 123 167 / 9%);
+  --surface: rgb(20 20 23 / 82%);
+  --surface-solid: #131316;
+  --surface-2: #1b1b20;
+  --text: #f3f3f5;
+  --muted: #a6a6b0;
+  --line: #2a2a31;
+  --accent: #007ba7;
+  --accent-hover: #ff2d95;
+  --on-accent: #ffffff;
+  --on-accent-hover: #0a0a0a;
+  --link: #3db4e0;
+  --link-hover: #ff2d95;
+  --rail: #ff2d95;
+  --focus: #ff2d95;
+  --shadow: 0 8px 24px rgb(0 0 0 / 55%);
+  --shadow-hover: 0 12px 30px rgb(0 0 0 / 70%);
+  --photo-glow: 0 0 28px rgb(255 45 149 / 40%);
+  --header-bg: rgb(10 10 10 / 88%);
+
+  --radius: 10px;
+  --radius-sm: 8px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f5f6f8;
+  --bg-glow-1: #d8eef6;
+  --bg-glow-2: #ffe0ef;
+  --grid: rgb(0 123 167 / 8%);
+  --surface: #ffffff;
+  --surface-solid: #ffffff;
+  --surface-2: #edf1f4;
+  --text: #0a0a0a;
+  --muted: #474750;
+  --line: #0a0a0a;
+  --accent: #007ba7;
+  --accent-hover: #ff2d95;
+  --on-accent: #ffffff;
+  --on-accent-hover: #0a0a0a;
+  --link: #007ba7;
+  --link-hover: #c80f70;
+  --rail: #ff2d95;
+  --focus: #ff2d95;
+  --shadow: 4px 4px 0 #0a0a0a;
+  --shadow-hover: 5px 8px 0 #0a0a0a;
+  --photo-glow: 4px 4px 0 #0a0a0a;
+  --header-bg: rgb(245 246 248 / 92%);
+}
+
+/* ---------- 2. Base ---------- */
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   margin: 0;
-  min-height: 100vh;
-  padding: 32px 16px;
+  font-family: var(--font);
+  line-height: 1.65;
+  color: var(--text);
   background:
-    radial-gradient(circle at top left, #073344 0, transparent 38rem),
-    radial-gradient(circle at bottom right, #38112f 0, transparent 35rem),
-    #080d12;
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 32px 32px,
+    radial-gradient(circle at 8% 8%, var(--bg-glow-1) 0, transparent 38%),
+    radial-gradient(circle at 92% 12%, var(--bg-glow-2) 0, transparent 32%),
+    var(--bg);
+  background-attachment: fixed;
 }
 
-main {
-  width: min(760px, 100%);
-  margin: 0 auto;
-  padding: 32px;
-  border: 1px solid #263643;
-  border-radius: 18px;
-  background: rgb(17 22 29 / 94%);
-  box-shadow: 0 20px 60px rgb(0 0 0 / 35%);
-}
-
-h1 {
-  margin: 0 0 8px;
-  color: #f5f9fc;
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
-}
-
-main > p {
-  margin: 0 0 28px;
-  color: #a9bdca;
-}
-
-section {
-  display: grid;
-  gap: 16px;
-}
-
+h1,
 h2,
 h3 {
-  margin: 12px 0 0;
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 h2 {
-  color: #42c8f5;
-  font-size: 1.25rem;
+  font-size: 1.6rem;
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
-label {
-  color: #dbe8ef;
+p {
+  margin: 0 0 1rem;
 }
 
-input[type="range"] {
-  width: 100%;
-  accent-color: #08a5d1;
-  cursor: pointer;
+a {
+  color: var(--link);
 }
 
-button {
-  min-height: 46px;
-  padding: 10px 18px;
-  border: 1px solid #168bb0;
-  border-radius: 10px;
-  background: #087ea3;
-  color: white;
-  font: inherit;
-  font-weight: 700;
-  cursor: pointer;
+a:hover {
+  color: var(--link-hover);
 }
 
-button:hover {
-  background: #0997bf;
-}
-
-button:focus-visible,
-input:focus-visible {
-  outline: 3px solid #ffd166;
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 
-#keypad-stop {
-  border-color: #d65478;
-  background: #a92d50;
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-#keypad-stop:hover {
-  background: #c23a60;
+/* ---------- 3. Header and navigation ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0.9rem 8%;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-output {
-  color: #fff;
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-}
-
-#frequency-value {
-  color: #51d5ff;
-}
-
-section > p {
+nav {
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin: 0;
-  padding: 14px 16px;
-  border: 1px solid #293945;
-  border-radius: 10px;
-  background: #0b1218;
+  justify-content: flex-end;
+  gap: 0.6rem;
 }
 
-@media (max-width: 520px) {
-  body {
-    padding: 16px 12px;
+nav a {
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  transform: translateY(-2px);
+  border-color: var(--link);
+  color: var(--link);
+}
+
+/* ---------- 4. Sections and cards ---------- */
+
+section {
+  margin: 1rem 0;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Tab panels sit inside the page, so they get no card of their own */
+.category-panel {
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.category-panel[hidden] {
+  display: none;
+}
+
+/* Project and video cards: the left edge is a "rail", like a ladder diagram */
+article {
+  margin: 1rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--rail);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+article p {
+  color: var(--muted);
+}
+
+article a {
+  display: inline-block;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+article a:hover {
+  background: var(--accent-hover);
+  color: var(--on-accent-hover);
+}
+
+/* ---------- 5. Hero ---------- */
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  align-items: center;
+  gap: 3rem;
+  animation: hero-in 0.7s ease-out both;
+}
+
+.hero-layout > div {
+  min-width: 0;
+}
+
+.hero-layout p:first-child {
+  margin-bottom: 0.2rem;
+  color: var(--muted);
+}
+
+#home h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-layout a {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-layout a:hover {
+  transform: translateY(-2px);
+  background: var(--accent-hover);
+  color: var(--on-accent-hover);
+}
+
+.profile-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border: 3px solid var(--rail);
+  border-radius: 50%;
+  box-shadow: var(--photo-glow);
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 6. Contact ---------- */
+
+.email-contact {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0.25rem 0 1.25rem;
+  padding: 0.55rem 0.9rem 0.55rem 0.6rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.email-symbol {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.email-address {
+  min-width: 0;
+  font-weight: 600;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.email-address:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.social-icon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  background: var(--accent-hover);
+  color: var(--on-accent-hover);
+}
+
+/* ---------- 7. Projects page tabs ---------- */
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.category-tab {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-solid);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.category-tab:hover {
+  transform: translateY(-3px);
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.category-tab.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.tabs-ready .category-panel:not([hidden]) {
+  animation: panel-in 0.2s ease;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0.4;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 8. Photo gallery (for the Photos tab) ---------- */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.photo-grid figure {
+  margin: 0;
+}
+
+.photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.photo-grid figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- 9. Footer ---------- */
+
+footer {
+  padding: 1.5rem 1rem 2rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ---------- 10. Small screens ---------- */
+
+@media (max-width: 600px) {
+  header {
+    padding: 0.7rem 1rem;
+  }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
   }
 
   main {
-    padding: 22px 18px;
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1.25rem;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .profile-photo {
+    order: -1;
+    width: 130px;
+    height: 130px;
+  }
+
+  .category-tabs {
+    gap: 0.5rem;
+  }
+
+  .category-tab {
+    padding: 0.6rem 1rem;
   }
 }
 
-.parameter-section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid #293945;
+/* ---------- 11. Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.parameter-intro {
-  margin: 0;
-  color: #a9bdca;
-  line-height: 1.6;
+/* ---------- Page load animation ---------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.table-wrap {
-  overflow-x: auto;
-  border: 1px solid #293945;
-  border-radius: 10px;
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-table {
-  width: 100%;
-  min-width: 620px;
-  border-collapse: collapse;
-  text-align: left;
+@keyframes ring-glow {
+  from {
+    box-shadow: 0 0 0 rgb(255 45 149 / 0%);
+  }
+  to {
+    box-shadow: var(--photo-glow);
+  }
 }
 
-th,
-td {
-  padding: 12px 14px;
-  border-bottom: 1px solid #293945;
-  vertical-align: top;
+/* Header slides down first */
+header {
+  animation: drop 0.5s ease-out backwards;
 }
 
-th {
-  background: #0b1218;
-  color: #51d5ff;
+/* Home page: the hero already fades in, then About and Contact follow */
+#about {
+  animation: rise 0.6s ease-out 0.2s backwards;
 }
 
-td {
-  color: #dbe8ef;
+#contact {
+  animation: rise 0.6s ease-out 0.35s backwards;
 }
 
-tbody tr:last-child td {
-  border-bottom: 0;
+/* Your photo ring lights up in neon rose */
+.profile-photo {
+  animation: ring-glow 1.2s ease-out 0.4s backwards;
 }
 
-tbody tr:nth-child(even) {
-  background: rgb(255 255 255 / 3%);
+/* Projects page: the tab buttons rise in */
+.category-tabs {
+  animation: rise 0.5s ease-out 0.1s backwards;
 }
 
-#terminal-mode {
-  width: 100%;
-  min-height: 46px;
-  padding: 10px 12px;
-  border: 1px solid #168bb0;
-  border-radius: 10px;
-  background: #0b1218;
-  color: #edf4f8;
-  font: inherit;
+article ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
 }
 
-.terminal-controls {
+article li {
+  margin-bottom: 0.3rem;
+}
+
+article li::marker {
+  color: var(--rail);
+}
+
+.card-label {
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--link);
+}
+
+.skills-grid {
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
 }
 
-.terminal-switch {
+.skill-group {
+  padding: 1rem 1.2rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--rail);
+  border-radius: var(--radius-sm);
+}
+
+.skill-group h3 {
+  margin-bottom: 0.7rem;
+}
+
+.skill-tags {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 52px;
-  padding: 12px 14px;
-  border: 1px solid #293945;
-  border-radius: 10px;
-  background: #0b1218;
-  cursor: pointer;
-}
-
-.terminal-switch input {
-  width: 20px;
-  height: 20px;
-  accent-color: #08a5d1;
-}
-
-#terminal-explanation {
+  flex-wrap: wrap;
+  gap: 0.5rem;
   margin: 0;
-  color: #a9bdca;
-  line-height: 1.6;
+  padding: 0;
+  list-style: none;
 }
 
-.wiring-section {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid #293945;
+.skill-tags li {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-solid);
+  font-size: 0.9rem;
 }
 
-.wiring-section figure {
-  margin: 0;
-}
-
-.wiring-section {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid #293945;
-}
-
-.wiring-section figure {
-  margin: 12px 0 24px;
-}
-
-.wiring-section img {
+article img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border: 1px solid #293945;
-  border-radius: 10px;
-  background: white;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
 }
-
-.wiring-section figcaption {
-  margin-top: 10px;
-  color: #a9bdca;
-  line-height: 1.6;
-}
-
-.parameter-section td:nth-child(2) {
-  white-space: nowrap;
-}
-
